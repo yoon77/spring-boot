@@ -12,8 +12,8 @@ import io.msastudy.shc.springboot.domain.Book;
 import io.msastudy.shc.springboot.service.BookService;
 
 @RestController
-//@RequestMapping("/books")
-@RequestMapping(value = "/books")
+@RequestMapping("/books")
+//@RequestMapping(value = "/books")
 public class BookController {
 
 	@Autowired
@@ -22,7 +22,6 @@ public class BookController {
 	@GetMapping("/{bookId}")
 	//public ResponseEntity<Book> findById(Long bookId) {
 	 public ResponseEntity findById(@PathVariable Long bookId){		
-		
 		
 		Book book = bookService.findById(bookId).orElseThrow(() -> new RuntimeException());
 		return ResponseEntity.ok(book);
